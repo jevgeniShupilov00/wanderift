@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+
+
+    <section style="background-color: #F7F9FF;" class="background-colored">
+       <div class="col-12 text-center white-block pt-5 pb-5">
+            <div class="container faq">
+
+                <h1 class="sec_one_head">Need some help?</h1>
+                <h5 style="padding-top:10px;" class="text-muted font-weight-normal">We'll answer any questions you've got!</h5>
+                <div class="row">
+                    <div class="col-sm-4 text-center mt-4">
+                        <button class="search_btn  w-100 main-btn-full">Find my Booking</button>
+                    </div>
+                    <div class="col-sm-4 text-center mt-4">
+                        <button class="search_btn  w-100 main-btn-full">Airline</button>
+                    </div>
+                    <div class="col-sm-4 text-center mt-4">
+                        <button class="search_btn  w-100 main-btn-full">Airline Fees</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container section-1 faq">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="page-title p-0 pt-4 mt-5">Frequently Asked Questions</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container faq">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="page-sub-title pt-4 pb-3 mt-2 mb-3" style="font-size: 22px;">Non Subscriber Bookings</h4>
+                </div>
+                <div class="col-12">
+                    <div class="accordion non-subs-accordion w-100 mb-2" id="subsAccordion">
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#collapse-1" aria-expanded="true"
+                                          aria-controls="collapse-1">
+                                        What Are the Baggage Fees?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapse-1" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                              <div class="card-body border">
+                                Navigate to our baggage fees page to learn how much the added baggage fees are for you.
+                              </div>
+                          </div>
+                     </div>
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#collapse-2" aria-expanded="true"
+                                          aria-controls="collapse-2">
+                                        How Do I Book a Flight with My Child?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapse-2" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                              <div class="card-body border">
+                                  Select the number of children passengers and have your child as an additional passenger.
+                              </div>
+                          </div>
+                    </div>
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#collapse-3" aria-expanded="true"
+                                          aria-controls="collapse-3">
+                                        Do Flight Prices Include the Taxes and Fees?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapse-3" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                              <div class="card-body border">
+                                  The prices on Wanderift include the applicable taxes and fees. The ONLY thing it does not include is checked baggage or the airlines that charge you for seat selection.
+                              </div>
+                          </div>
+                    </div>
+                     <div class="card border mb-4">
+                        <div class="card-header no-bg-color p-2" id="headingOne">
+                             <h2 class="mb-0">
+                               <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                      data-target="#collapse-4" aria-expanded="true"
+                                      aria-controls="collapse-4">
+                                    Can I Add My Flight Miles?
+                               </button>
+                             </h2>
+                        </div>
+                        <div id="collapse-4" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                          <div class="card-body border">
+                            Yes, you can absolutely add your flight miles. We know how important flight miles can be for our passengers, and we certainly do not want to leave that out for you!
+                          </div>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <h4 class="page-sub-title pt-4 pb-3 mt-2 mb-4" style="font-size: 22px;">Wanderift Lift
+                        or Pro Bookings</h4>
+                </div>
+                <div class="col-12">
+                    <div class="accordion pack-accordion w-100 mb-2" id="packAccordion">
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#pack-collapse-1" aria-expanded="true"
+                                          aria-controls="pack-collapse-1">
+                                        Can I Rollover Credits Each Month?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="pack-collapse-1" class="collapse" aria-labelledby="headingOne" data-parent="#packAccordion">
+                              <div class="card-body border">
+                                    Yes you can, it just depends on which plan. Wanderift LITE allows up to ONE credit to rollover while Wanderift PRO allows up to TWO credits to roll over each month.
+                              </div>
+                          </div>
+                     </div>
+                    <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#pack-collapse-2" aria-expanded="true"
+                                          aria-controls="pack-collapse-2">
+                                        Can I Earn Frequent Flyer Miles?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="pack-collapse-2" class="collapse" aria-labelledby="headingOne" data-parent="#packAccordion">
+                              <div class="card-body border">
+                                    Yes you can earn your Frequent Flyer Miles! We do not take that feature away from our subscribers.
+                              </div>
+                          </div>
+                    </div>
+                    <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#pack-collapse-3" aria-expanded="true"
+                                          aria-controls="pack-collapse-3">
+                                        Do Wanderift Flights Include Baggage Fees?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="pack-collapse-3" class="collapse" aria-labelledby="headingOne" data-parent="#packAccordion">
+                              <div class="card-body border">
+                                    No we do not include baggage fees with your booking(s), as this is an additional cost dictated by each airline company.
+                              </div>
+                          </div>
+                    </div>
+                    <div class="card border mb-4">
+                        <div class="card-header no-bg-color p-2" id="headingOne">
+                             <h2 class="mb-0">
+                               <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                      data-target="#pack-collapse-4" aria-expanded="true"
+                                      aria-controls="pack-collapse-4">
+                                    Can I Book a Flight for Another Person?
+                               </button>
+                             </h2>
+                        </div>
+                        <div id="pack-collapse-4" class="collapse" aria-labelledby="headingOne" data-parent="#packAccordion">
+                          <div class="card-body border">
+                                Absolutely! Travel is better with a companion! Just have them create a free Wanderift account, and share credits (flights) with them. Sharing is as easy as that!
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-1 mt50" style="background-color: #00B7FF;">
+            <div class="container faq pb-5">
+                <div class="row search pb-5">
+                    <div class="col-sm-6" style="top: 50px;">
+                        <div class="card mt50 mb-3">
+                            <div class="card-body shadow p-4">
+                                <div class="card-title mb-4">
+                                    <h3 class="bold p-0 mt-0">Still have some questions?</h3>
+                                </div>
+                                <p class="text-dark">Didn't answer your question? No worries,
+                                    send us an email
+                                    info@wanderift.com and we'll answer any questions you've got</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="top: 50px;">
+                        <div class="card mt50 mb50">
+                            <div class="card-body shadow p-4">
+                                <div class="card-title mb-4">
+                                    <h3 class="bold p-0 mt-0">Feedback?</h3>
+                                </div>
+                                <p class="text-dark">Didn't answer your question? No worries,
+                                    send us an email
+                                    info@wanderift.com and we'll answer any questions you've got</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include "_includes/footer.html" %}
+{% endblock %}

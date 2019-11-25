@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+    <section class="background-colored" style="background-color: #F7F9FF;">
+        <div class="col-12 text-center pt-5 pb-4">
+            <h1 style="margin-top: 20px;">Subscribe to Wanderift</h1>
+            <h4 class="text-muted" style="font-weight: 500; font-size: 1.2rem;">Start saving on your travel today</h4>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+
+                <!-- left side -->
+                <div class="col-12 col-md-6 mb-5">
+                    <div class="card p-3">
+                        <!-- 1 -->
+
+                        <div class="col-12 mx-auto mb-4">
+                            <h4 class="card-title pt-4 mb-4">1. Choose a Plan</h4>
+                            <div class="row pl-3 pr-3">
+                                <div class="col-6 p-3 cursor-pointer card offer-card active" id="lite"
+                                     onclick="$('#liteButton').trigger('click')">
+                                    <h5 class="card-title">Wanderift Lite | $369</h5>
+                                    <p style="font-size: .85rem;">3 Credits (3 one-way flights)</p>
+                                    <p style="font-size: .85rem;">No Long Term Commitment</p>
+                                    <p style="font-size: .85rem;">1 Unused Credits Rollover</p>
+                                </div>
+                                <div class="col-6 p-3 cursor-pointer card offer-card" id="pro"
+                                     onclick="$('#proButton').trigger('click')">
+                                    <h5 class="card-title">Wanderift Pro | $459</h5>
+                                    <p style="font-size: .85rem;">4 Credits (4 one-way flights)</p>
+                                    <p style="font-size: .85rem;">No Long Term Commitment</p>
+                                    <p style="font-size: .85rem;">2 Unused Credits Rollover</p>
+                                </div>
+                                <input type="radio" name="subscription" value="lite" id="liteButton" hidden checked
+                                       form="subscriptionForm">
+                                <input type="radio" name="subscription" value="pro" id="proButton" hidden
+                                       form="subscriptionForm">
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="col-12">
+                            <h4 class="card-title pt-3 mb-1">2. Add Your Traveler Info</h4>
+                            <h5 class="mb-3" style="padding-top: 5px;font-size: .9rem; font-weight: 600;">
+                                or <a href="#" class="text-primary cursor-pointer" data-toggle="modal"
+                                         data-target="#signInOptionsModal">sign in</a> to existing account
+                            </h5>
+                            {% if user.is_authenticated %}
+                                <div class="text-center mt-4 mb-4">
+                                    <button class="search_btn">Subscribe to start booking</button>
+                                </div>
+                            {% else %}
+                                <form action="{% url "subscription" %}" method="post" id="subscriptionForm">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-6 mb-2">
+                                            <label>Title</label>
+                                            <input class="form-control" type="text" name="title">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>First Name</label>
+                                            <input class="form-control" type="text" name="first_name">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Last Name</label>
+                                            <input class="form-control" type="text" name="last_name">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Gender</label>
+                                            <input class="form-control" type="text" name="gender">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Date of Birth</label>
+                                            <input class="form-control" type="text" name="dob" id="dob">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Phone Number</label>
+                                            <input class="form-control" type="text" name="phone_number">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Email</label>
+                                            <input class="form-control" type="email" name="email">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Password</label>
+                                            <input class="form-control" type="password" name="password">
+                                        </div>
+                                    </div>
+
+                                    <!-- 3 -->
+                                    <h4 class="card-title mt-5 mb-4">3. Enter Payment Details</h4>
+                                    <div class="row">
+                                        <div class="col-6 mb-2">
+                                            <label>Credit Card Number</label>
+                                            <input class="form-control" type="text" name="card_number" value="4242424242424242">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Security Code</label>
+                                            <input class="form-control" type="number" name="cvc" value="123">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Expiration Date</label>
+                                            <input class="form-control" type="text" name="expiry" id="expiry" value="1/12/2020">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Country</label>
+                                            <input class="form-control" type="text" name="country">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <label>Billing Zip</label>
+                                            <input class="form-control" type="text" name="zip">
+                                        </div>
+                                    </div>
+
+                                    <!-- accept terms -->
+                                    <div class="accept-terms mt-3">
+                                        <input type="checkbox" class="d-inline-block">
+                                        <span>I agree to Wanderift </span>
+                                        <span class="text-primary">Terms of Use</span>
+                                    </div>
+                                    <div class="text-center mt-4 mb-4">
+                                        <button type="submit" class="search_btn">Subscribe to Wanderift Lite</button>
+                                    </div>
+                                </form>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- right side -->
+                <div class="info col-12 col-md-6 mb-5">
+                    <div class="container">
+                        <!-- lite or pro -->
+                        <div class="role col-12">
+                            <h4 class="title mb-4">What is Wanderift Lite or Pro</h4>
+                            <p class="pl-4">Saving on flights through credits</p>
+                            <p class="pl-4">Always pay the same price for your flights</p>
+                            <p class="pl-4">Share or send your credits with anyone</p>
+                        </div>
+
+                        <!-- summary -->
+                        <div class="card card-sm p-4 mb-4" id="liteSummary">
+                            <h4 class="card-title">Order Summary</h4>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="font-weight-bold mb-16">Item</h5>
+                                    <p class="mb-2">Wanderift Lite(3 Credits)</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="font-weight-bold mb-16">Price</h5>
+                                    <p class="mb-2">$359 per month</p>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="font-weight-bold">Total</h5>
+                                </div>
+                                <div class="col-6">
+                                    <h6>$359 per month</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-sm p-4 mb-4" id="proSummary" style="display: none">
+                            <h4 class="card-title">Order Summary</h4>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="font-weight-bold mb-16">Item</h5>
+                                    <p class="mb-2">Wanderift Pro(4 Credits)</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="font-weight-bold mb-16">Price</h5>
+                                    <p class="mb-2">$439 per month</p>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="font-weight-bold">Total</h5>
+                                </div>
+                                <div class="col-6">
+                                    <h6>$439 per month</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- faq -->
+                        <div class="card card-sm p-4 mb-4">
+                            <h4 class="card-title">Still have some questions?</h4>
+                            <p class="pl-4">No worries! Send us an email at</p>
+                            <p class="pl-4">questions@wanderift.com, or click the</p>
+                            <p class="pl-4">button below to read our FAQ's</p>
+
+                            <div class="text-center mb-4 mt-4">
+                                <button class="search_btn">Frequently Asked Questions</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}
+
+{% block jscontent %}
+    <script>
+        {% if user.is_authenticated %}
+
+        {% else %}
+            new Lightpick({
+                field: document.getElementById('dob'),
+            });
+
+            new Lightpick({
+                field: document.getElementById('expiry')
+            });
+        {% endif %}
+
+
+        document.getElementById("lite").addEventListener("click", makeActive);
+        document.getElementById("pro").addEventListener("click", makeActive);
+
+        function makeActive($event) {
+            console.log($event.target.id)
+            switch ($event.target.id) {
+                case 'lite':
+                    document.getElementById('liteSummary').style.display = "block";
+                    document.getElementById('proSummary').style.display = "none";
+                    document.getElementById('pro').classList.remove('active');
+                    document.getElementById('lite').className += " active";
+                    break;
+                case 'pro':
+                    document.getElementById('liteSummary').style.display = "none";
+                    document.getElementById('proSummary').style.display = "block";
+                    document.getElementById('lite').classList.remove('active');
+                    document.getElementById('pro').className += " active";
+                    break;
+                default:
+                    document.getElementById('liteSummary').style.display = "block";
+                    document.getElementById('proSummary').style.display = "none";
+                    document.getElementById('pro').classList.remove('active');
+                    document.getElementById('lite').className += " active";
+                    break;
+            }
+        }
+    </script>
+{% endblock %}

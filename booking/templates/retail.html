@@ -1,0 +1,398 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load custom_date %}
+
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    {#    <link rel="stylesheet" href="{% static "css/retail.css" %}">#}
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    {% else %}
+        <div class="promo_banner">
+            <p class="promo_banner_text mb-0">Looking to save thousands on flights? Subscribe to Wanderift Lite or Pro
+                and
+                Save
+                <button class="promo_btn mt-2" style="margin-left: 20px;">Learn More</button>
+            </p>
+        </div>
+    {% endif %}
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+    <section class="background-colored pb-5">
+        <div class="title text-center p-5">
+            <h1>Book Your Flight</h1>
+            <h4 class="text-muted">Enter some details and you'll be good to go!</h4>
+        </div>
+        <div class="container mb-5">
+            <form action="{% url 'book' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <!-- left side -->
+                    <div class="col-12 col-md-8 mb-4 mx-auto">
+                        {% for flight in flight.flights %}
+                            <div class="card p-3 mb-3 pb-0 mx-auto shadow">
+                                <!-- 1 -->
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        <h5 class="">{{ flight.src_name }}</h5>
+                                        <div class="divider-15"></div>
+                                        <div class="zero-m">
+                                            <p class="mb-0 text-muted small">DEPARTURE</p>
+                                            <p class="mb-0">
+                                                <span>{{ flight.local_departure| iso_date |date:"D d M" }}</span>
+                                            </p>
+                                            <p class="small text-muted">{{ flight.local_departure| iso_date|time:"H:i:A" }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <p>&nbsp;</p>
+                                        <div class="zero-m">
+                                            <p>&nbsp;</p>
+                                            <p class="text-muted">0h <span>55m</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <h5 class="">{{ flight.dst_name }}</h5>
+                                        <div class="divider-15"></div>
+                                        <div class="zero-m">
+                                            <p class="mb-0 text-muted small">&nbsp;</p>
+                                            <p class="mb-0">Thu <span>08/15</span></p>
+                                            <p class="small text-muted">10:20</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        <div class="zero-m">
+                                            <p class="mb-0 text-muted small">RETURN</p>
+                                            <p class="mb-0">
+                                                <span>{{ flight.local_arrival| iso_date |date:"D d M" }}</span>
+                                            </p>
+                                            <p class="small text-muted">{{ flight.local_arrival| iso_date|time:"H:i:A" }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="zero-m">
+                                            <p>&nbsp;</p>
+                                            <p class="text-muted">1h <span>55m</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <div class="zero-m">
+                                            <p class="mb-0 text-muted small">&nbsp;</p>
+                                            <p class="mb-0">Sat <span>08/15</span></p>
+                                            <p class="small text-muted">10:20</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="m-2">
+                                <p class="w-100 text-center mb-0 p-0 cursor-pointer" data-toggle="collapse" data-target="#collapse-flight-{{ flight.src_name }}">
+                                    <i class="fa fa-arrow-down"></i>
+                                </p>
+
+                                <div class="collapse" id="collapse-flight-{{ flight.src_name }}">
+                                <hr class="m-2">
+                                <div class="route-box">
+                                    <div class="d-flex justify-content-between p-0 pr-2 pl-2">
+                                        <h5>To Austin</h5>
+                                        <p class="mb-0"><strong class="text-muted">0h 55m</strong></p>
+                                    </div>
+                                    <div class="stop-box p-2">
+                                        <div class="card m-0" style="border: 0;">
+                                            <div class="card-header p-0 pl-2" style="border: 1px solid silver;">
+                                                <p class="mb-0 small">
+                                                    <i class="fa fa-calendar mr-2 text-muted"></i>
+                                                    Thu 15 Aug
+                                                </p>
+                                            </div>
+                                            <div class="card-body p-2">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <p class="mb-0">
+                                                            <strong class="text-muted">
+                                                                <i class="fa fa-map-marker mr-2 text-muted text-primary"
+                                                                style="margin-left: 2px;"></i>
+                                                                Dallas Love Field
+                                                            </strong>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-6 text-right">
+                                                        <p class="text-muted mb-0 tex">DAL</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <p>
+                                                            <i class="fa fa-clock-o mr-2 text-muted text-primary"></i>
+                                                            18:36
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-6 text-right">
+                                                        <span class="text-muted">Departure</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fa fa-plane mr-2 text-muted w-10 text-primary"></i>
+                                                    <div class="card w-100" data-toggle="collapse"
+                                                        data-target="#airplane3">
+                                                        <div class="card-body p-0">
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="pt-2 pl-5">
+                                                                    <img src="{% static "images/american.png" %}"
+                                                                        alt="airline" height="20px">
+                                                                </div>
+                                                                <div class="d-inline-flex justify-content-between">
+                                                                    <div class="airlines-labels">
+                                                                        <label class="mb-0">Airlines</label>
+                                                                        <br>
+                                                                        <label class="small text-grey">Airline</label>
+                                                                    </div>
+                                                                    <!-- <label class="text-grey pt-2">Thy 15 Aug</label> -->
+                                                                </div>
+                                                                <div class="col-1 text-right pt-2">
+                                                                    <img src="images/arrow.png"
+                                                                        style="width: 10px; height: 5px;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer collapse" id="airplane3">
+                                                            <h5 class="text-grey">Flight info</h5>
+                                                            <div class="d-inline-flex justify-content-between w-100 pl-2">
+                                                                <label>Flight No.</label>
+                                                                <label class="text-grey">143
+                                                                </label>
+                                                            </div>
+                                                            <div class="d-inline-flex justify-content-between w-100 pl-2">
+                                                                <label>Seats Remaining</label>
+                                                                <label class="text-grey">12</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-3">
+                                                    <div class="col-sm-6">
+                                                        <p class="mb-0">
+                                                            <strong class="text-muted">
+                                                                <i class="fa fa-map-marker mr-2 text-muted text-primary"
+                                                                style="margin-left: 2px;"></i>
+                                                                Some Airline Austin - Dallas
+                                                            </strong>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-6 text-right">
+                                                        <p class="text-muted mb-0">AUS</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <p>
+                                                            <i class="fa fa-clock-o mr-2 text-muted text-primary"></i>
+                                                            21:45
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-6 text-right">
+                                                        <span class="text-muted">Arrival</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <p class="small text-muted ml-4">Stays 1 day in Dallas</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- Stop box end-->
+                                </div> <!-- Route box end-->
+                            </div>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!--      2 section-->
+                    <div class="col-12 col-md-8 mx-auto">
+                        <div class="card p-4 shadow mb-4 mx-auto">
+                            <h5 class="card-title mb-3">1. Traveler Information</h5>
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <label>First Name</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control border" name="first_name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label>Last Name</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control border" name="last_name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label>Gender</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control border" name="gender">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label>Date of Birth</label>
+                                    <div class="form-group">
+                                        <input type="text" id="dob" class="form-control border" name="dob">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--      3 section-->
+                    <div class="col-12 col-md-8 mx-auto">
+                        <div class="card p-4 mb-4 shadow mx-auto">
+                            <h5 class="card-title mb-3">2. Contact Information</h5>
+
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label>Email Address</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control border" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label>Phone Number</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control border" name="phone_number">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-8 mx-auto p-0">
+                        <div class="container">
+                            <div class="row">
+                                <!--      4 section-->
+                                <div class="col-12 col-md-8 mb-2">
+                                    <div class="card p-3 shadow">
+
+                                        <h5 class="card-title mb-4">3. Enter Payment Details</h5>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label>Credit Card Number</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border" id="usr" name="card_number"
+                                                           placeholder="Card Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label>Expiration date</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border" id="expiry" name="expiry"
+                                                           placeholder="19/20">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label>Security code</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border" id="pwd" name="cvc"
+                                                           placeholder="CVC">
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <label>Country</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border" id="pwd" name="country"
+                                                           placeholder="Country">
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Billing Zip</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border" id="pwd" name="zip"
+                                                           placeholder="Zip">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 text-center w-100 mt-4 mb-4">
+                                                <button class="search_btn w-100">Pay for Flight</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--      5 section-->
+                                <div class="col-12 col-md-4 mb-2 pl-3 pl-md-0 d-flex flex-column justify-content-between">
+
+                                    <div class="card p-3 w-100 mb-2 shadow">
+                                        <h5 class="card-title mb-1">Order Summary</h5>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="font-weight-bold mb-0">Item</p>
+                                                <p class="">Wanderift Lite(3 Credits)</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="font-weight-bold mb-0">Price</p>
+                                                <h6 class="">$359 per month</h6>
+                                            </div>
+                                        </div>
+                                        <hr class="p-0 m-0 mb-1"/>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="font-weight-bold">Total</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <h6>$359 per month</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--      section-->
+                                    <div class="card p-3 w-100 shadow">
+                                        <h5 class="card-title mb-1">Subscribe and save</h5>
+                                        <p class="mb-0">Start saving on your travel today</p>
+                                        <p class="mb-0">questions@wanderift.com <br> or click the</p>
+
+                                        <div class="w-100 mt-2">
+                                            <a href="#" class="btn btn-primary main-btn-outline w-100">Frequently Asked
+                                                Questions</a>
+                                        </div>
+                                        <div class="w-100 mt-2">
+                                            <a href="#" class="btn btn-primary main-btn-outline w-100">Frequently Asked
+                                                Questions</a>
+                                        </div>
+
+                                    </div>
+                                    <!--       section-->
+                                </div>
+                                <!--      5 section-->
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </section>
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}
+
+{% block jscontent %}
+    <script>
+        new Lightpick({
+            field: document.getElementById('dob'),
+        });
+
+        new Lightpick({
+            field: document.getElementById('expiry')
+        });
+    </script>
+{% endblock %}

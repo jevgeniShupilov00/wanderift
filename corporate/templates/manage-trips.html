@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+
+     <section class="navbar-section">
+        {% include "_includes/corporate_nav.html" %}
+    </section>
+
+    <section class="background-colored">
+
+        <div class="container content-holder pt-5">
+            <div class="row">
+
+                <div class="col-12">
+                    <h2 class="page-title">Manage Trips</h2>
+                </div>
+
+                <div class="divider-30"></div>
+
+                <div class="col-md-6 mt-3">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="page-sub-title">Upcomming Trips</h4>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn primary-button">Book a Flight</button>
+                        </div>
+                    </div>
+                    <div class="divider-15"></div>
+                    <div class="trip-item text-center card">
+                        <div class="item-content w-100">
+                             <label class="w-100">No upcoming trips... start booking</label>
+                            <label class="w-100">Today and save</label>
+                        </div>
+                    </div>
+                    <div class="divider-30"></div>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="page-sub-title">Flights you've been watching</h4>
+                        </div>
+                    </div>
+                    <div class="divider-15"></div>
+                    <div class="trip-item text-center card">
+                        <div class="item-content w-100">
+                             <label class="w-100">No upcoming trips... start booking</label>
+                            <label class="w-100">Today and save</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="page-sub-title">Previous Trips</h4>
+                        </div>
+                    </div>
+                    <div class="divider-15"></div>
+                    <div class="trip-item text-center card">
+                        <div class="item-content">
+                             <label class="w-100">No upcoming trips... start booking</label>
+                            <label class="w-100">Today and save</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {%  include "_includes/footer.html" %}
+{% endblock %}

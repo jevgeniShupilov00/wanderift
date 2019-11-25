@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wanderift-deployment
+spec:
+  selector:
+    matchLabels:
+      app: wanderift
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wanderift
+    spec:
+      containers:
+        - name: wanderift
+          image: registry.gitlab.com/zburau/wanderift-django
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+      imagePullSecrets:
+        - name: gitlab-registry

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+
+    <section class="background-colored">
+        <div class="col-12 text-center white-block pt-5 pb-5 mt-1">
+            <h1 class="sec_one_head">Feedback</h1>
+            <h4 class="sec_one_subhead text-muted">Have a thought? Let's hear it!</h4>
+        </div>
+        <div class="container pt-1">
+            <div class="content_container">
+                <div class="row pt-5 pb-5">
+                    <div class="col-12 col-md-6">
+                        <form class="form card">
+                            <div class="form-group">
+                                <label for="email_address"><strong>Email address</strong></label>
+                                <input type="email" class="form-control" id="email_address" placeholder="name@example.com">
+                              </div>
+                            <div class="divider-15"></div>
+                            <div class="form-group">
+                                <label for="username"><strong>Name</strong></label>
+                                <input type="text" class="form-control" id="username" placeholder="John Rain">
+                              </div>
+                            <div class="divider-15"></div>
+                            <div class="form-group">
+                                <label for="email_text_message"><strong>Message</strong></label>
+                                <textarea class="form-control" id="email_text_message" rows="5" placeholder="Your thoughts.."></textarea>
+                              </div>
+                            <div class="divider-15"></div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                     <button type="submit" class="search_btn w-100">Send</button>
+                                 </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="pt-4 pb-4 p-md-0">
+                            If your feedback is related to needing technical help, take at our help section before sending feedback.
+                        </p>
+                        <a href="/faq" class="search_btn link">Help FAQ's</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}
+{% block jscontent %}
+    <script src="{% static "js/home.js" %}"></script>
+    <script src="{% static "js/lightpick.js" %}">
+    </script>
+    <script>
+        let tripButton = document.querySelector(".btn-group");
+        let picker = new Lightpick({
+            field: document.getElementById('departure_date'),
+            secondField: document.getElementById('return_date'),
+            singleDate: false,
+            onSelect: function (start, end) {
+                var str = '';
+                str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+                str += end ? end.format('Do MMMM YYYY') : '...';
+                {#document.getElementById('result-3').innerHTML = str;#}
+            }
+        });
+    </script>
+{% endblock %}

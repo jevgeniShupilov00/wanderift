@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+
+    <section class="background-colored">
+        <div class="col-12 text-center white-block pt-5 pb-5 mt-1">
+            <h1 class="sec_one_head">About</h1>
+            <h4 class="sec_one_subhead text-muted font-weight-normal">What we offer and how it benefits you</h4>
+        </div>
+        <div class="container content_container pt-1 pb-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="simple-column pt-5">
+                        <h2>Retail Flights</h2>
+                        <p>
+                            Wanderift offers what we call “Retail Flights”. Now what exactly are Retail Flights?
+                            Retail flights offer more destinations, preferred seating options, and industry wide
+                            pricing per flight. With a Retail Flight, you do not need a subscription to fly with us.
+                            Just browse, book, fly. It is as easy as that!
+                        </p>
+                    </div>
+                    <div class="simple-column">
+                        <h2>Personal Subscriptions</h2>
+                        <p>
+                            Our subscription plans are what Wanderift started with (which means we have nearly
+                            perfected the experience), and provide the biggest airline booking savings. With a
+                            Personal Subscription, you pay one of two low monthly prices, and can fly to over 24
+                            major destinations throughout the United States such as Los Angeles, Miami, and New
+                            York to name a few. If you have any questions about our Personal Subscription plans,
+                            feel free to email us at info@wanderift.com and we will be more than happy to
+                            answer any questions you may have!
+                        </p>
+                    </div>
+                    <div class="simple-column">
+                        <h2>Corporate Subscriptions</h2>
+                        <p>
+                            Does your company find that you have to take care of business in different states to
+                            reach your quotas? That is where our Corporate Subscriptions come into play. We
+                            made this simple and easy for you to take advantage of. Whoever you want to be the
+                            account holder creates a Corporate Subscription account, and whoever they need to
+                            fly to conduct business has their account where they can pull from your allotted credit
+                            pool. You can purchase 10-100 credits at one time, and they never expire! Any
+                            questions about our Corporate Subscription plans can be answered by contacting
+                            info@wanderift.com.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}
+{% block jscontent %}
+    <script src="{% static "js/home.js" %}"></script>
+    <script src="{% static "js/lightpick.js" %}">
+    </script>
+    <script>
+        let tripButton = document.querySelector(".btn-group");
+        let picker = new Lightpick({
+            field: document.getElementById('departure_date'),
+            secondField: document.getElementById('return_date'),
+            singleDate: false,
+            onSelect: function (start, end) {
+                var str = '';
+                str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+                str += end ? end.format('Do MMMM YYYY') : '...';
+                {#document.getElementById('result-3').innerHTML = str;#}
+            }
+        });
+    </script>
+{% endblock %}

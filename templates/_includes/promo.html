@@ -1,0 +1,15 @@
+{% load static %}
+{% if user.is_authenticated %}
+{% else %}
+    <div class="promo_banner">
+        <p class="promo_banner_text mb-0">Looking to save thousands on flights? Subscribe to Wanderift Lite or Pro
+            and
+            Save
+            <button class="promo_btn mt-2" style="margin-left: 20px;">
+                <a class="custom_nav_link" href="{% url "how-it-works" %}">
+                    Learn More
+                </a>                
+            </button>
+        </p>
+    </div>
+{% endif %}

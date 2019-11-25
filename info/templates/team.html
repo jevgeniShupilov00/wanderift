@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+
+    <section class="background-colored">
+        <div class="col-12 text-center white-block pt-5 pb-5">
+            <h1 class="sec_one_head">The Team</h1>
+            <h4 class="sec_one_subhead text-muted">Meet the team behind the curtain</h4>
+        </div>
+        <div class="container pt-1">
+            <div class="content_container">
+                <div class="row">
+                    <div class="col-12 col-md-4 team-grid-item">
+                        <div class="img-holder">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/140x140" alt="Team Member">
+                            </div>
+                        </div>
+                        <h4>Zachary Burau</h4>
+                        <p>Founder, CEO</p>
+                        <a href="#">Read Bio ></a>
+                    </div>
+                    <div class="col-12 col-md-4 team-grid-item">
+                        <div class="img-holder">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/140x140" alt="Team Member">
+                            </div>
+                        </div>
+                        <h4>Zachary Burau</h4>
+                        <p>Founder, CEO</p>
+                        <a href="#">Read Bio ></a>
+                    </div>
+                    <div class="col-12 col-md-4 team-grid-item">
+                        <div class="img-holder">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/140x140" alt="Team Member">
+                            </div>
+                        </div>
+                        <h4>Zachary Burau</h4>
+                        <p>Founder, CEO</p>
+                        <a href="#">Read Bio ></a>
+                    </div>
+                    <div class="col-12 col-md-4 team-grid-item">
+                        <div class="img-holder">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/140x140" alt="Team Member">
+                            </div>
+                        </div>
+                        <h4>Zachary Burau</h4>
+                        <p>Founder, CEO</p>
+                        <a href="#">Read Bio ></a>
+                    </div>
+                    <div class="col-12 col-md-4 team-grid-item">
+                        <div class="img-holder">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/140x140" alt="Team Member">
+                            </div>
+                        </div>
+                        <h4>Zachary Burau</h4>
+                        <p>Founder, CEO</p>
+                        <a href="#">Read Bio ></a>
+                    </div>
+                    <div class="col-12 col-md-4 team-grid-item">
+                        <div class="img-holder">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/140x140" alt="Team Member">
+                            </div>
+                        </div>
+                        <h4>Zachary Burau</h4>
+                        <p>Founder, CEO</p>
+                        <a href="#">Read Bio ></a>
+                    </div>
+                    <div class="col-12 col-md-4 team-grid-item">
+                        <div class="img-holder">
+                            <div class="image">
+                                <img src="https://via.placeholder.com/140x140" alt="Team Member">
+                            </div>
+                        </div>
+                        <h4>Zachary Burau</h4>
+                        <p>Founder, CEO</p>
+                        <a href="#">Read Bio ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}

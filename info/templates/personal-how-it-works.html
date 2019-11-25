@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+     <link rel="stylesheet" href="{% static "css/how-it-works.css" %}">
+{% endblock %}
+
+{% block content %}
+    <noscript>
+        <strong>We're sorry but wanderift doesn't work properly without JavaScript enabled. Please enable it to
+            continue.</strong>
+    </noscript>
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+    <section>
+        <div class="border-bottom background-colored">
+            <div class="no-bg-color card w-100 border-0 pt-5 pb-5">
+                <div class="container">
+                    <div class="row no-gutters">
+                        <div class="col-md-8 d-flex">
+                            <div class="card-body d-flex flex-column justify-content-around p-0 p-md-2">
+                                <h1 class="card-title hiw-page-block">Start Saving Thousands on Flights</h1>
+                                <div class="divider-15"></div>
+                                <h4 class="card-text">
+                                    Subscribe to either Wanderift Lite or Wanderift Pro and
+                                    get unmatched savings on flights
+                                </h4>
+                                <div class="divider-30"></div>
+                                <div class="card-buttons">
+                                    <a href="{% url "subscription" %}"><button class="search_btn">View Plans</button></a>
+                                    <a href="{% url "faq" %}"><button class="search_btn ml-3">FAQ's</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3 mt-md-0 text-center header-image-holder">
+                          <img src="{% static "images/airplane.png" %}" class="card-img" alt="How it works">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content_container how-it-works pt-5 pb-5">
+                <div class="col-12 text-center mt-md-5 pt-5 pb-5">
+                    <h2 style="font-size: 2.3rem; padding-bottom: 10px;">How it Works</h2>
+                    <h5 class="text-muted font-weight-normal">Change up your travel plans and start saving on flights today!</h5>
+                </div>
+                <div class="accordion subs-accordion mb-2" id="subsAccordion">
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#collapse-1" aria-expanded="true"
+                                          aria-controls="collapse-1">
+                                        Airline Subscription
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapse-1" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                              <div class="card-body border">
+                                We were started on our popular airline subscription plans, which many people take
+                                advantage of with the immense savings. Our airline subscriptions plans are simple…
+                                pay either $369 per month for Wanderift Lite, and get 3 one-way flights to any of over
+                                24 destinations in the United States OR choose our Wanderift Pro plan and get 4 oneway
+                                flights for only $459 per month.
+                              </div>
+                          </div>
+                     </div>
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#collapse-2" aria-expanded="true"
+                                          aria-controls="collapse-2">
+                                        Booking with credits
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapse-2" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                              <div class="card-body border">
+                                Our credit system is a very simple way to book airline flights. Instead of paying a
+                                different price each flight, you pay with credits. One credit equals a single one-way
+                                flight. This makes booking your flights easier than ever before!
+                              </div>
+                          </div>
+                    </div>
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#collapse-3" aria-expanded="true"
+                                          aria-controls="collapse-3">
+                                        Airlines
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="collapse-3" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                              <div class="card-body border">
+                                    We use the most popular airlines on the market. You can choose from American
+                                    Airlines, Delta Airlines, Southwest Airlines, as well as United Airlines. We also offer
+                                    flights from Spirit, Frontier, and other airlines if you choose to do so.
+                              </div>
+                          </div>
+                    </div>
+                     <div class="card border mb-4">
+                        <div class="card-header no-bg-color p-2" id="headingOne">
+                             <h2 class="mb-0">
+                               <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                      data-target="#collapse-4" aria-expanded="true"
+                                      aria-controls="collapse-4">
+                                    Post Booking Process
+                               </button>
+                             </h2>
+                        </div>
+                        <div id="collapse-4" class="collapse" aria-labelledby="headingOne" data-parent="#subsAccordion">
+                          <div class="card-body border">
+                            Booked your flight with Wanderift, and want to learn what to do next? Simple…get
+                            your airline booking verification, and you are good to go. The verification will provide
+                            basic information such as date of flight, which airline, and what time your flight is at.
+                            This is very common on all major booking platforms.
+                          </div>
+                        </div>
+                    </div>
+                 </div>
+                <div class="col-12 text-center mt-md-5 pt-5 pb-5">
+                     <h2 style="font-size: 2.3rem; padding-bottom: 10px;">Subscription Plans</h2>
+                     <h5 class="text-muted font-weight-normal mx-auto" style="max-width: 650px; line-height: 1.4">
+                         Choose between Lite and Pro. If your travel plans change throughout your subscription,
+                         feel free to pause and reactivate your account!
+                     </h5>
+                 </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card subscription-card mb-3">
+                        <div class="card-header d-flex flex-column justify-content-end">
+                            <h2 class="card-title" style="margin-bottom: 0px;">Wanderift Lite</h2>
+                        </div>
+                      <div class="card-body">
+                        <h1 class="d-inline mr-1">$ 369</h1> <p class="d-inline" style="font-weight: 500; font-size: 16px;"> per month</p>
+                        <div class="divider-15"></div>
+                        <span class="card-text">No long term commitment</span>
+                          <ul style="padding-left: 10px; margin-top:30px; margin-bottom:20px;">
+                              <li>3 Credits (3 One-way flights)</li>
+                              <li>1 unsued credit rollover</li>
+                              <li>Fly All Major Airlines</li>
+                              <li>Exclusive Hotel Deals</li>
+                          </ul>
+                        <a href="#" class="btn btn-primary main-btn-outline w-100">Get Started</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card subscription-card mb-3">
+                        <div class="card-header d-flex flex-column justify-content-between">
+                            <p class="subscription-offer-notice w-100 text-center" style="font-weight: 600;">Best Value Per Credit</p>
+                            <h2 class="card-title" style="margin-bottom: 0px;">Wanderift Pro</h2>
+                        </div>
+                      <div class="card-body">
+                          <h1 class="d-inline mr-1">$ 459</h1> <p class="d-inline" style="font-weight: 500; font-size: 16px;"> per month</p>
+                          <div class="divider-15"></div>
+                          <span class="card-text">No long term commitment</span>
+                          <ul style="padding-left: 10px; margin-top:30px; margin-bottom:20px;">
+                              <li>4 Credits (3 One-way flights)</li>
+                              <li>2 unsued credit rollover</li>
+                              <li>Fly All Major Airlines</li>
+                              <li>Exclusive Hotel Deals</li>
+                          </ul>
+                        <a href="#" class="btn btn-primary main-btn-outline w-100">Get Started</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 text-center mt-md-5 pt-5 pb-5">
+                     <h2 class="font-weight-normal" style="font-size: 2.3rem; padding-bottom: 10px;">Frequently Asked Questions</h2>
+                     <h5 class="text-muted font-weight-normal">Here are a few words about aireline travel as a subscription</h5>
+                 </div>
+                <div class="accordion faq-accordion mb-2" id="faqAccordion">
+                     <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#faq-collapse-1" aria-expanded="true"
+                                          aria-controls="faq-collapse-1">
+                                        Can I Rollover Credits Each Month?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="faq-collapse-1" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                              <div class="card-body border">
+                                  Yes you can, it just depends on which plan.  Wanderift LITE allows up to ONE credit to rollover while Wanderift PRO allows up to TWO credits to roll over each month.
+                              </div>
+                          </div>
+                     </div>
+                    <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#faq-collapse-2" aria-expanded="true"
+                                          aria-controls="faq-collapse-2">
+                                        Do Wanderift Flights Include Baggage Fees
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="faq-collapse-2" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                              <div class="card-body border">
+                                  No we do not include baggage fees with your booking(s), as this is an additional cost dictated by each airline company.
+                              </div>
+                          </div>
+                    </div>
+                    <div class="card border mb-4">
+                          <div class="card-header no-bg-color p-2" id="headingOne">
+                              <h2 class="mb-0">
+                                  <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                          data-target="#faq-collapse-3" aria-expanded="true"
+                                          aria-controls="faq-collapse-3">
+                                        Can I Book a Flight for Another Person?
+                                  </button>
+                              </h2>
+                          </div>
+                          <div id="faq-collapse-3" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                              <div class="card-body border">
+                                  Absolutely!  Travel is better with a companion!  Just have them create a free Wanderift account, and share credits (flights) with them.  Sharing is as easy as that!
+                              </div>
+                          </div>
+                    </div>
+                    <div class="card border mb-4">
+                        <div class="card-header no-bg-color p-2" id="headingOne">
+                             <h2 class="mb-0">
+                               <button class="btn btn-link w-100 text-left" type="button" data-toggle="collapse"
+                                      data-target="#faq-collapse-4" aria-expanded="true"
+                                      aria-controls="faq-collapse-4">
+                                    Can I Fly to Multiple Destinations at Once?
+                               </button>
+                             </h2>
+                        </div>
+                        <div id="faq-collapse-4" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                          <div class="card-body border">
+                              Yes you can!  Just make sure you have the appropriate amount of credits (flights).  Book your trip through one ways from each destination to travel to more places each month.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center mt-md-5 pt-5 pb-5">
+                     <h2 class="font-weight-normal" style="font-size: 2.3rem; padding-bottom: 10px;">Subscriber Testemonials</h2>
+                     <h5 class="text-muted font-weight-normal">Here are a few words about aireline travel as a subscription</h5>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4 p-2">
+                        <h5 class="card testemonial p-3" style="font-size: 16px; font-weight: 500; line-height: 20.0px;">
+                            With Wanderift I always pay the same price for my flight
+                            <span class="name-line border-top pt-2 mt-4 text-right">Johnatan Doe</span>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-md-4 p-2">
+                        <h5 class="card testemonial p-3" style="font-size: 16px; font-weight: 500; line-height: 20.0px;">
+                            Booking has never been eaiser
+                            <span class="name-line border-top pt-2 mt-4 text-right">Johnatan Doe</span>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-md-4 p-2">
+                        <h5 class="card testemonial p-3" style="font-size: 16px; font-weight: 500; line-height: 20.0px;">
+                            Thanks to Wanderift I'm a weekend worrier
+                            <span class="name-line border-top pt-2 mt-4 text-right">Johnatan Doe</span>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-md-4 p-2">
+                        <h5 class="card testemonial p-3" style="font-size: 16px; font-weight: 500; line-height: 20.0px;">
+                            Finally a travel service with good customer service!
+                            <span class="name-line border-top pt-2 mt-4 text-right">Johnatan Doe</span>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-md-4 p-2">
+                        <h5 class="card testemonial p-3" style="font-size: 16px; font-weight: 500; line-height: 20.0px;">
+                            No more wierd annoying airline pricing
+                            <span class="name-line border-top pt-2 mt-4 text-right">Johnatan Doe</span>
+                        </h5>
+                    </div>
+                    <div class="col-12 col-md-4 p-2">
+                        <h5 class="card testemonial p-3" style="font-size: 16px; font-weight: 500; line-height: 20.0px;">
+                            A great solution to frequent travel
+                            <span class="name-line border-top pt-2 mt-4 text-right">Johnatan Doe</span>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center background-colored pt-5 pb-5 mt-5" style="background-color: #F7f9ff;">
+            <div class="card-body">
+                <h3 class="card-title" style="font-size: 2.3rem;">Ready to Get Started?</h3>
+                <h5 class="card-text mx-auto">Time to start saving? Click below and start saving on Flights!</h5>
+                <div class="divider-30"></div>
+                <a href="{% url "subscription" %}" class="btn primary-button" style="font-size: 18px; font-weight: 600;">Subscribe to Wanderift Lite and Pro</a>
+            </div>
+        </div>
+    </section>
+     <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}
+
+{% block jscontent %}
+{% endblock %}

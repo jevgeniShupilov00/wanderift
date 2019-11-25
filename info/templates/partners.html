@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <link rel="stylesheet" href="{% static "css/partners.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+
+    <section class="background-colored" style="background-color: #F7F9FF;">
+        <div class="col-12 text-center white-block pt-5 pb-5">
+            <h1 class="sec_one_head">Partners</h1>
+            <h4 class="sec_one_subhead text-muted font-weight-normal" style="padding-top: 10px;">We would love to work with you, send us some more information</h4>
+        </div>
+        <div class="container pt-1">
+            <div class="content_container">
+                <div class="divider-30"></div>
+                <div class="row divider_btm row-eq-height">
+                    <div class="col-12 col-md-4 partners-grid-item mb-3">
+                        <div class="partner-card card">
+                            <h4>Airline or Travel Partner</h4>
+                            <p>If you are an airline or online travel agency that wants to be listed at Wanderift</p>
+                            <div class="divider-15"></div>
+                            <a class="partner-card-link" href = "mailto: abc@example.com"><strong>partners@wanderift.com</strong></a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 partners-grid-item mb-3">
+                        <div class="partner-card card">
+                            <h4>Advertising on Wanderift</h4>
+                            <p>
+                                Bring your message to millions of users. See what opportunities are available for
+                                advertising on our site.
+                            </p>
+                            <div class="divider-15"></div>
+                            <a class="partner-card-link" href = "mailto: abc@example.com"><strong>adsales@wanderift.com</strong></a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 partners-grid-item mb-3">
+                        <div class="partner-card card">
+                            <h4>Contact Support</h4>
+                            <p>Check out our help section or send us a note. We'll respond as soon as possible.</p>
+                            <div class="divider-15"></div>
+                            <a class="partner-card-link" href="#"><strong>Contact Support</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}

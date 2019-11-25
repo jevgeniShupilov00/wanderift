@@ -1,0 +1,33 @@
+.white-block {
+    padding-top: 30px;
+}
+.sec_one_subhead {
+    padding-top:10px;
+    font-weight: 400;
+}
+
+.uper_box .left_img {
+    background-color: #111e42;
+    color: #eff0f2;
+    border: 1px solid #979797;
+    border-radius: 4px 0 0 4px;
+}
+
+.uper_box .right_img {
+    max-height: 310px;
+    background: #FFFFFF;
+    border-radius: 0 6px 6px 0;
+}
+
+.img_content_lower h5 {
+    line-height: 1.5;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-family: karla;
+    font-weight: bold;"
+}
+
+.news-card-group .card {
+    background-color: transparent;
+    border: 0;
+}

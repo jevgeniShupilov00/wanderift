@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <link rel="stylesheet" href="{% static "css/news.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+
+    <section class="background-colored">
+        <div class="col-12 text-center white-block pt-5 pb-5 mt-1">
+            <h1 class="sec_one_head">News, Updates, Travel Tricks</h1>
+            <h4 class="sec_one_subhead text-muted">Always stay in the loup with the hottest travel news and updates</h4>
+        </div>
+        <div class="container pt-1">
+            <div class="content_container">
+                <div class="container divider_btm pt-5 mt-5">
+                    <div class="justify-content-center uper_box m-0 p-3">
+                        <div class="row shadow">
+                            <div class="col-lg-5 left_img align-items-center">
+                                <div class="box-text-content p-3 p-md-5">
+                                    <h3>
+                                        FORBES: Remember Rollover Minutes? This Subscription Service Lets You Roll Over Flights
+                                    </h3>
+                                    <br>
+                                    <button class="search_btn">View Article</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 right_img p-0 mx-auto d-block" style="overflow: hidden;">
+                                <img style="width:100%; margin-top: -11%;" src="{% static "images/home/rollover_plane.jpg" %}" alt="Rollover Plane">
+                            </div>
+                        </div>
+
+                    </div>
+
+                      <div class="news-card-group card-group mt-2">
+                        <div class="card">
+                            <div class="shadow_box p-0 p-md-2">
+                                <div class="img_content_uper" style="overflow: hidden;">
+                                    <img style="width:115%; height: 200px;" src="{% static "images/home/inside_plane.jpg" %}" alt="Rollover Plane">
+                                </div>
+                                <div class="img_content_lower">
+                                    <div class="box-text-content p-3">
+                                        <h5>
+                                            STARTUP STAGE: Wanderift brings subscription model to air travel
+                                        </h5>
+                                        <button class="search_btn mt-1" style="padding: 5px 15px; font-size: 0.9em; margin-bottom: 10px; font-weight: bold; font-family: karla;">View Article</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="shadow_box p-0 p-md-2">
+                                <div class="img_content_uper" style="overflow: hidden;">
+                                    <img style="width:100%; margin-top: -5%;" src="{% static "images/home/american_plane.jpg" %}" alt="Rollover Plane">
+                                </div>
+                                <div class="img_content_lower">
+                                    <div class="box-text-content p-3">
+                                        <h5>
+                                            PYMNTS: Can Air Travel Ticketing Subscriptions Take-off?
+                                        </h5>
+                                        <button class="search_btn mt-1" style="padding: 5px 15px; font-size: 0.9em; margin-bottom: 10px; font-weight: bold; font-family: karla;">View Article</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="shadow_box p-0 p-md-2">
+                                <div class="img_content_uper" style="overflow: hidden;">
+                                    <img style="width:100%;" src="{% static "images/home/flying_plane.jpg" %}" alt="Rollover Plane">
+                                </div>
+                                <div class="img_content_lower">
+                                    <div class="box-text-content p-3">
+                                        <h5>
+                                            Simple Flying: Would A Subscription Airline Model Work?
+                                        </h5>
+                                        <button class="search_btn mt-1" style="padding: 5px 15px; font-size: 0.9em; margin-bottom: 10px; font-weight: bold; font-family: karla;">View Article</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end" style="margin-top:1rem"><p class="sec_one_subhead"style="margin-right: 28px; font-size: 18px; margin-top: 10px;">View All</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}
+{% block jscontent %}
+    <script src="{% static "js/home.js" %}"></script>
+    <script src="{% static "js/lightpick.js" %}">
+    </script>
+    <script>
+        let tripButton = document.querySelector(".btn-group");
+        let picker = new Lightpick({
+            field: document.getElementById('departure_date'),
+            secondField: document.getElementById('return_date'),
+            singleDate: false,
+            onSelect: function (start, end) {
+                var str = '';
+                str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+                str += end ? end.format('Do MMMM YYYY') : '...';
+                {#document.getElementById('result-3').innerHTML = str;#}
+            }
+        });
+    </script>
+{% endblock %}

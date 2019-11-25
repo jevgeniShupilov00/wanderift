@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/trips.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+
+    <section class="navbar-section">
+        {% include "_includes/corporate_nav.html" %}
+    </section>
+
+        <section class="background-colored">
+        <div class="container content-holder pt-5">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <h1>Good Morning Tom From Good Success</h1>
+                    <h2>
+                        50 Tokens Currently Available
+                    </h2>
+                </div>
+                <div class="col-12 col-md-auto">
+                    <button class="search_btn">Add an Employee</button>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="background-colored">
+        <div class="container content-holder">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="heading-primary">Travel Stats</h1>
+                    <h2 class="heading-secondary">
+                        Here’s some stats to keep track of your travel
+                    </h2>
+                </div>
+
+                    <div class="col-md-4 mt-4">
+                        <div class="trip-item text-center card">
+                            <div class="item-content w-100">
+                                <h3 class="heading-primary">$2,500</h3>
+                                <h5 class="heading-tertiary">Estimated Savings</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <div class="trip-item text-center card">
+                            <div class="item-content w-100">
+                                <h3 class="heading-primary">32</h3>
+                                <h5 class="heading-tertiary">Trips Taken</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <div class="trip-item text-center card">
+                            <div class="item-content w-100">
+                                <h3 class="heading-primary">Dallas - Austin</h3>
+                                <h5 class="heading-tertiary">Most Popular Trip</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <div class="trip-item text-center card">
+                            <div class="item-content w-100">
+                                <h3 class="heading-primary">$2,500</h3>
+                                <h5 class="heading-tertiary">Estimated Savings</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{#                <div class="travel-stats__card">#}
+{#                    <h1 class="heading-primary">$2,500</h1>#}
+{#                    <h3 class="heading-tertiary">Estimated Savings</h3>#}
+{#                </div>#}
+{#                <div class="travel-stats__card">#}
+{#                    <h1 class="heading-primary">32</h1>#}
+{#                    <h3 class="heading-tertiary">Trips Taken</h3>#}
+{#                </div>#}
+{#                <div class="travel-stats__card">#}
+{#                    <h1 class="heading-primary">Dallas - Austin</h1>#}
+{#                    <h3 class="heading-tertiary">Most Popular Trip</h3>#}
+{#                </div>#}
+            </div>
+            </div>
+        </section>
+        <section class="background-colored">
+        <div class="container content-holder">
+            <div class="calendar__heading">
+                <h1 class="travel-stats__title heading-primary">
+                    Team Travel Calendar
+                </h1>
+                <h2 class="travel-stats__subtitle heading-secondary">
+                    See when and where everyone is going
+                </h2>
+            </div>
+            <section class="calendar__wrapper">
+                <div class="calendar__header">
+                    <div class="calendar__text-container">
+                        <div>
+                            <button><img src="{% static "images/arrow_left.svg" %}"></button>
+                            <h1>June 2017</h1>
+                            <button><img src="{% static "images/arrow_right.svg" %}"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar__body">
+                    <span class="day-name">Mon</span><span class="day-name">Tue</span
+                ><span class="day-name">Wed</span><span class="day-name">Thu</span
+                ><span class="day-name">Fri</span><span class="day-name">Sat</span
+                ><span class="day-name">Sun</span>
+                    <div class="day"><span>1</span></div>
+                    <div class="day"><span>2</span></div>
+                    <div class="day"><span>3</span></div>
+                    <div class="day"><span>4</span></div>
+                    <div class="day"><span>5</span></div>
+                    <div class="day"><span>6</span></div>
+                    <div class="day"><span>7</span></div>
+                    <div class="day"><span>8</span></div>
+                    <div class="day"><span>9</span></div>
+                    <div class="day"><span>10</span></div>
+                    <div class="day"><span>11</span></div>
+                    <div class="day"><span>12</span></div>
+                    <div class="day"><span>13</span></div>
+                    <div class="day"><span>14</span></div>
+                    <div class="day"><span>15</span></div>
+                    <div class="day day--current"><span>16</span></div>
+                    <div class="day"><span>17</span></div>
+                    <div class="day"><span>18</span></div>
+                    <div class="day"><span>19</span></div>
+                    <div class="day"><span>20</span></div>
+                    <div class="day"><span>21</span></div>
+                    <div class="day"><span>22</span></div>
+                    <div class="day"><span>23</span></div>
+                    <div class="day"><span>24</span></div>
+                    <div class="day"><span>25</span></div>
+                    <div class="day"><span>26</span></div>
+                    <div class="day"><span>27</span></div>
+                    <div class="day"><span>28</span></div>
+                    <div class="day"><span>29</span></div>
+                    <div class="day"><span>30</span></div>
+                    <div class="day"><span>31</span></div>
+                    <div class="day day--disabled">1</div>
+                    <div class="day day--disabled">2</div>
+                    <div class="day day--disabled">3</div>
+                    <div class="day day--disabled">4</div>
+                    <section class="task task--primary">
+                        Cycling
+                    </section>
+                    <section class="task task--secondary">Endurance Run</section>
+                    <section class="task task--tertiary">Triple Treat</section>
+                    <section class="task task--tertiary task--tertiary--1">
+                        Triple Treat
+                    </section>
+                    <section class="task task--tertiary">Design Sprint</section>
+                    <section class="task task--quaternary">5km Run</section>
+                    <section class="task task--quintinary">2k Run</section>
+                    <section class="task task--quintinary task--quintinary--1">
+                        Cycling
+                    </section>
+                    <button class="btn btn--1">Book a Flight</button>
+                </div>
+            </div>
+            </section>
+        </section>
+    {%  include "_includes/footer.html" %}
+{% endblock %}
+
+{% block jscontent %}
+
+{% endblock %}

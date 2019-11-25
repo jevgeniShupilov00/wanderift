@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+
+    <section class="navbar-section">
+        {% include "_includes/corporate_nav.html" %}
+    </section>
+
+    <section class="background-colored">
+        <div class="container content-holder pt-5">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="page-title">Corporate Account</h2>
+                </div>
+                <div class="col-sm-12">
+                    <ul class="nav my-nav-tabs mt30 pb-1">
+                        <li class="ml-2"><a data-toggle="tab" href="#home" class="active">Overview</a></li>
+                        <li class="ml-5"><a data-toggle="tab" href="#billing">Billing</a></li>
+                    </ul>
+                    <br>
+                    <div class="tab-content mt30">
+                        <div id="home" class="tab-pane fade in active show">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body shadow">
+                                            <div class="card-title">
+                                                <h3 class="bold p-0">Traveler Information</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">First Name</label>
+                                                        <input class="form-control" type="text"
+                                                               placeholder="First Name">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">Last Name</label>
+                                                        <input class="form-control" type="text" placeholder="Last Name">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">Email</label>
+                                                        <input class="form-control" type="email" placeholder="Email">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">Date Of Birth</label>
+                                                        <input class="form-control" type="date">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">Gender</label>
+                                                        <input class="form-control" type="text" placeholder="Gender">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">Market</label>
+                                                        <input class="form-control" type="text" placeholder="Market">
+                                                    </div>
+                                                    <div class="form-group col-sm-12 pt-1">
+                                                        <button class="btn search_btn bold btn-width">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-title">
+                                                <h3 class="bold p-0">Change Password</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">Current Password</label>
+                                                        <input class="form-control" type="text"
+                                                               placeholder="Current password">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">New Password</label>
+                                                        <input class="form-control" type="text"
+                                                               placeholder="New Password">
+                                                    </div>
+                                                    <div class="form-group col-sm-12 pt-1">
+                                                        <button class="btn search_btn bold btn-width">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider-30"></div>
+                                    <div class="card">
+                                        <div class="card-body shadow">
+                                            <div class="card-title">
+                                                <h3 class="bold p-0">Frequent Flyer Numbers</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">American Airlines</label>
+                                                        <input class="form-control" type="text" placeholder="Airelines">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">American Airlines</label>
+                                                        <input class="form-control" type="text" placeholder="Airelines">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">American Airlines</label>
+                                                        <input class="form-control" type="text" placeholder="Airelines">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">American Airlines</label>
+                                                        <input class="form-control" type="text" placeholder="Airelines">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">American Airlines</label>
+                                                        <input class="form-control" type="text" placeholder="Airelines">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="pb-2">American Airlines</label>
+                                                        <input class="form-control" type="text" placeholder="Airelines">
+                                                    </div>
+                                                    <div class="form-group col-sm-12 pt-1">
+                                                        <button class="btn search_btn bold btn-width">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="divider-30 d-block d-md-none"></div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body shadow">
+                                            <div class="card-title">
+                                                <h3 class="bold p-0">Select Your Credits</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <h4 class="m-0 bold">How many credits?</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-sm-7">
+                                                        <div class="progress corporate-progress m-0">
+                                                            <div class="progress-bar" style="width: 40%;"
+                                                                 role="progressbar" aria-valuenow="progress"
+                                                                 aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <div class="small bold"><span
+                                                                class="float-left">10 Credits</span><span
+                                                                class="float-right">100 Credits</span></div>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <span class="m-0 bold total-tokens">60</span>
+                                                        <span class="bold">Total Credits</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider-30"></div>
+                                    <div class="card">
+                                        <div class="card-body shadow">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-6 text-center border-right"
+                                                         style="border-width: 4px !important;">
+                                                        <h4 class="m-0 bold">Total Cost : <span>$6,840</span></h4>
+                                                    </div>
+                                                    <div class="col-6 text-center">
+                                                        <h4 class="m-0 bold"><span>$114</span> Per Credit</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider-30"></div>
+                                    <div class="card">
+                                        <div class="card-body shadow">
+                                            <div class="card-title">
+                                                <h3 class="bold p-0">Purchase Credits</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col-12">
+                                                        <label class="pb-2">Bank Account Number</label>
+                                                        <input class="form-control" type="text"
+                                                               placeholder="Bank Account">
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label class="pb-2">Routing Number</label>
+                                                        <input class="form-control" type="text"
+                                                               placeholder="Routing Number">
+                                                    </div>
+                                                    <div class="form-group col-12 pt-1">
+                                                        <button class="btn search_btn bold w-100">Purchase 60 Credits for
+                                                            $6,840
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider-30"></div>
+                                    <div class="card">
+                                        <div class="card-body shadow">
+                                            <div class="card-title">
+                                                <h3 class="bold p-0">Add Employees</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col-12">
+                                                        <label class="pb-2">Employee One</label>
+                                                        <input class="form-control" type="text"
+                                                               placeholder="Employee One">
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label class="pb-2">Employee Two</label>
+                                                        <input class="form-control" type="text"
+                                                               placeholder="Employee Two">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {%  include "_includes/footer.html" %}
+
+{% endblock %}
+
+{% block jscontent %}
+{% endblock %}

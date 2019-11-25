@@ -1,0 +1,60 @@
+.navbar-section {
+    border-bottom: 1px solid silver;
+}
+
+.navbar-section nav {
+    padding-top: 15px;
+    background-color: white;
+    box-shadow: 0 2px 4px whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.navbar-section nav .nav_btn_link {
+    padding-top: 10px;
+}
+
+/****************** Navigation ***********/
+nav {
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.navbar-brand {
+    position: absolute;
+    left: 15px;
+    margin-left: 10px !important;
+}
+.nav_btn_link {
+    position: absolute;
+    left: 30px;
+    top: 5px;
+    padding: 0;
+    display: none;
+    box-shadow: 0 2px 4px whitesmoke;
+}
+.nav_btn_link .nav-button-logout {
+    background-color: white;
+    border: 1px solid #2e6da4;
+    padding: 4px 30px;
+    border-radius: 3px;
+
+}
+.nav_btn_link.get_started_btn {
+    top: 0;
+}
+
+.navbar-light .navbar-nav a.nav-link {
+    color: #1d222e;
+}
+
+@media screen and (min-width: 992px) {
+  .navbar-brand {
+        left: 50%;
+        margin-left: -70px !important;
+    }
+    .nav_btn_link {
+        display: block;
+    }
+    .slider-holder {
+        display: inline-block;
+    }
+}

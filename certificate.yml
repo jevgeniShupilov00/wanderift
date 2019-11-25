@@ -1,0 +1,17 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: wanderift-crt
+spec:
+  secretName: wanderift-secret
+  dnsNames:
+  - wanderift.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - wanderift.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

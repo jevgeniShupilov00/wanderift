@@ -1,0 +1,541 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block csscontent %}
+    <link rel="stylesheet" href="{% static "css/lightpick.css" %}" xmlns:v-on="http://www.w3.org/1999/xhtml"
+          xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section class="navbar-section">
+        {% include "_includes/promo.html" %}
+    </section>
+    <section class="navbar-section">
+        {% include "_includes/navbar.html" %}
+    </section>
+
+    <section>
+        <div class="container content-holder" style="padding-bottom: 30px;">
+            <div class="search_content_box">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-12 pr-0">
+                            {% if user.is_authenticated %}
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <p class="home-slogan" style="margin-bottom: 25px;">
+                                            <span>Welcome {% if user.first_name %}back {{ user.first_name }}!{% else %}to Wanderift!{% endif %}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <p class="home-slogan" style="margin-bottom: 25px;">
+                                            <span>Travel Made Simple . . .</span>
+                                            <span class="text-primary">Search, Book, Save</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="row">
+                                <div class="col-12 mt-2 col-md-auto search-column-dropdown">
+                                    <img src="{% static "images/icons/arrows_rotating.png" %}">
+                                    <input type="text" class="drop_down_btn" readonly data-toggle="dropdown"
+                                           aria-haspopup="true"
+                                           aria-expanded="false" name="destinationType" id="destinationType"
+                                           v-model="form.destinationType"/>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item drop_down_btn_item" @click="selectDestType(1)">
+                                            Return
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item drop_down_btn_item" @click="selectDestType(2)">One
+                                            way</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2 col-md-auto search-column-dropdown">
+                                    <img src="{% static "images/icons/man_user.png" %}">
+                                    <input type="text" class="drop_down_btn" readonly data-toggle="modal"
+                                           data-target="#passengersModal"
+                                           value="Passengers" name="noOfPassengers" id="noOfPassengers"
+                                           v-model="form.noOfPassengers"/>
+                                </div>
+                                <div class="col-12 mt-2 col-md-auto search-column-dropdown">
+                                    <img src="{% static "images/icons/dollar.png" %}">
+                                    <input type="text" class="drop_down_btn" readonly data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false" name="seatType" id="seatType"
+                                           v-model="form.seatType"/>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item drop_down_btn_item"
+                                           @click="selectSeatType(1)">Economy</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item drop_down_btn_item" @click="selectSeatType(2)">Premium
+                                            Economy</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item drop_down_btn_item"
+                                           @click="selectSeatType(3)">Business</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item drop_down_btn_item" @click="selectSeatType(4)">First
+                                            Class</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-sm-12 flexed-search-bar pl-0">
+                                    <div class="flexed-search-item">
+                                        <label class="search_label" @click="openPlaceModal(1)">
+                                            <h6>Departure City :
+                                                <input type="text" class="search_input" readonly name="placesFrom"
+                                                       id="placesFrom"/>
+                                            </h6>
+                                        </label>
+                                        <img class="icon_repeat" src="{% static "images/repeat.svg" %}"
+                                             @click="swapPlaces">
+                                    </div>
+                                    <div class="flexed-search-item">
+                                        <label class="search_label" @click="openPlaceModal(2)">
+                                            <h6>
+                                                Arrival City :
+                                                <input type="text" class="search_input" readonly name="placesTo"
+                                                       id="placesTo"/>
+                                            </h6>
+                                        </label>
+                                    </div>
+                                    <div class="flexed-search-item">
+                                        <label class="search_label">
+                                            <h6>Departure Date :
+                                                <input type="text" name="dep_date" id="departure_date"
+                                                       class="search_input">
+                                            </h6>
+                                        </label>
+                                    </div>
+                                    <div class="flexed-search-item">
+                                        <label class="search_label">
+                                            <h6>Return Date :
+                                                <input type="text" name="ret_date" id="return_date"
+                                                       class="search_input">
+                                            </h6>
+                                        </label>
+                                    </div>
+                                    <div class="flexed-search-item">
+                                        <button class="search_btn"
+                                                @click="search">Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="passengersModal" tabindex="-1" role="dialog" aria-labelledby="passengersModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog mt-5 pt-1" role="document">
+                <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="passengersModalLabel">Passengers</h6>
+                    </div>
+                    <div class="modal-body">
+                        <span>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-sm">
+                                  Adults
+                                </div>
+                                <div class="col-sm">
+                                  <input type="button" class="increment" value="-" @click="decrement(1)"
+                                         id="valAdultsDecrement"/>
+
+                                      <input type="text" readonly
+                                             style="padding: 1% 2%; width: 15%; border: none; text-align: center"
+                                             v-model="form.valAdults" id="valAdults"/>
+                                   <input type="button" class="increment" id="valAdultsIncrement" value="+"
+                                          @click="increment(1)"/>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-sm">
+                                  Children
+                                </div>
+                                <div class="col-sm">
+                                  <input type="button" class="increment" value="-" @click="decrement(2)"
+                                         id="valChildrenDecrement"/>
+
+                                      <input type="text" readonly
+                                             style="padding: 1% 2%; width: 15%; border: none; text-align: center"
+                                             v-model="form.valChildren" id="valChildren"/>
+                                   <input type="button" class="increment" value="+" @click="increment(2)"
+                                          id="valChildrenIncrement"/>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                         <div class="container">
+                              <div class="row">
+                                <div class="col-sm">
+                                  Infants
+                                </div>
+                                <div class="col-sm">
+                                  <input type="button" class="increment" value="-" @click="decrement(3)"
+                                         id="valInfantsDecrement"/>
+
+                                      <input type="text" readonly
+                                             style="padding: 1% 2%; width: 15%; border: none; text-align: center"
+                                             v-model="form.valInfants" id="valInfants"/>
+                                  <input type="button" class="increment" value="+" @click="increment(3)"
+                                         id="valInfantsIncrement"/>
+                                </div>
+                              </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" style="width: 50%; background: aliceblue;"
+                                data-dismiss="modal">Close
+                        </button>
+                        <button type="button" class="btn" style="width: 50%; background: #00B7FF;color: #fff"
+                                data-dismiss="modal">Save changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% if user.is_authenticated %}
+            {% if user.subscriptions.plan %}
+                <div class="asset_box">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-4 mt-4 m-md-0">
+                                <a href="{% url "accounts" %}">
+                                    <button class="search_btn  w-100 main-btn-full">{{ user.subscriptions }} Credits
+                                        Available
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="d-block d-md-none divider-30"></div>
+                            <div class="col-12 col-md-4 mt-4 m-md-0">
+                                <a href="{% url "accounts" %}">
+                                    <button class="search_btn w-100 main-btn-full">Add More Credits</button>
+                                </a>
+                            </div>
+                            <div class="d-block d-md-none divider-30"></div>
+                            <div class="col-12 col-md-4 mt-4 m-md-0">
+                                <a href="{% url "accounts" %}">
+                                    <button class="search_btn w-100 main-btn-full">Add a Travel Companion</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="asset_box">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-4 mt-4 m-md-0">
+                                <a href="{% url "accounts" %}">
+                                    <button class="search_btn  w-100 main-btn-full">Add Traveller information
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="d-block d-md-none divider-30"></div>
+                            <div class="col-12 col-md-4 mt-4 m-md-0">
+                                <a href="{% url "accounts" %}">
+                                    <button class="search_btn w-100 main-btn-full">Subscribe to Wanderift lite or pro
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="d-block d-md-none divider-30"></div>
+                            <div class="col-12 col-md-4 mt-4 m-md-0">
+                                <a href="{% url "how-it-works" %}">
+                                    <button class="search_btn w-100 main-btn-full">Travel Tips</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="asset_box">
+                <div class="container">
+                    <div class="row justify-content-center" style="text-align:center">
+                        <div class="col-12 col-md-3 mt-4 m-md-0">
+                            <img class="img_asset" src="{% static "images/simple.png" %}" style="width:210px;">
+                        </div>
+                        <div class="d-block d-md-none divider-30"></div>
+                        <div class="col-12 col-md-3 mt-4 m-md-0">
+                            <img class="img_asset" src="{% static "images/forbes.png" %}">
+                        </div>
+                        <div class="d-block d-md-none divider-30"></div>
+                        <div class="col-12 col-md-3 mt-4 m-md-0">
+                            <img class="img_asset" src="{% static "images/smart.png" %}">
+                        </div>
+                        <div class="d-block d-md-none divider-30"></div>
+                        <div class="col-12 col-md-3 mt-4 m-md-0">
+                            <img class="img_asset" src="{% static "images/tech-crunch.png" %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Modal -->
+        <div class="modal fade" id="placesModal" tabindex="-1" role="dialog" aria-labelledby="placesModalCenterTitle"
+             aria-hidden="true" onblur="choosePlaces()">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content" style="top: 160px;">
+                    <div class="modal-body">
+                        <div class="row pop2_first">
+                            <div class="col-12" style="text-align:left; margin-bottom: 2%"><p id="placesModalTitle"></p>
+                            </div>
+                            <div class="col-12" style="text-align:right">
+                                <!--  <p style="color:#8092a9; cursor: pointer;"  @click="clearList"><i
+                                      class="fa fa-times" style="margin-left:5px"></i></p>--></div>
+                        </div>
+                        <div class="row pop2_second">
+                            <div class="col-12">
+                                <div>
+                                    <div style="border: 1px solid #00B7FF; border-radius: 5px; padding: 2%">
+                                        <div class="search_selected_values">
+                                            <button class="sel_place_btn" style="margin: 2%" id="mySelectedPlace">
+                                                <i class="fa fa-times-circle" style="margin-right:5px"
+                                                   @click="clearPlaceItem(index)"></i>
+
+                                            </button>
+                                        </div>
+
+                                        <div class="pop2_hor_line" style="margin:10px 0px"></div>
+                                        <input 
+                                                class="pop2_input"
+                                                autofocus
+                                                type="text"
+                                                v-model="city"
+                                                v-on:keyup="cityHandler"
+                                                id="addLocation"
+                                                placeholder="Add new location..."/>
+                                    </div>
+
+                                    <ol class="search_result_list">
+                                        <li v-for="(place, index) of searchResultPlaces">
+                                            <button class="btn search_result_list_item"
+                                                    @click="setPlace(place.nameCity,place.codeIataCity,index)">
+                                                <i class="fa fa-building" style="padding-right: 2%"></i>
+                                                <i class="fa fa-plane" style="padding-right: 2%"
+                                                   :hidden="true"></i>
+                                                {( place.nameCity )}
+                                            </button>
+                                            <button class="btn search_result_list_item"
+                                                    @click="setPlace(place.nameCity,place.codeIataCity,index)">
+                                                <i class="fa fa-plane" style="padding-right: 2%"></i>
+                                                {( place.airport.nameAirport )}
+                                            </button>
+                                        </li>
+                                    </ol>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        {#                        <button class="pop2_footer_left" data-dismiss="modal">Cancel</button>#}
+                        <button class="pop2_footer_right" @click="choosePlaces">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="recent-searches mt-5 pt-5" style="display: none">
+        <div class="container">
+            <div class="content_container">
+                <p class="sec_one_head" style="font-size: 35px;">Recent Flight Searches</p>
+                <p class="sec_one_subhead" style="font-size: 18px; font-weight:400; margin-bottom: 30px;">
+                    Take a look at all your recent searches, if you want to view the results again
+                    just click on one of the boxes.
+                </p>
+                <div class="card-group">
+                    <div class="card m-2 border">
+                        <div class="card-body">
+                            <h5 class="card-title">New York - Los Angeles</h5>
+                            <p class="card-text">Trip dates - 8/12 | 8/16</p>
+                            <p class="card-text">Average Price - $124</p>
+                            <p class="card-text">
+                                Typical Carriers -
+                                <img src="{% static "images/jetblue.png" %}" alt="Airline" height="25">
+                                <img src="{% static "images/spirit.png" %}" alt="Airline" height="25">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card m-2 border">
+                        <div class="card-body">
+                            <h5 class="card-title">New York - Los Angeles</h5>
+                            <p class="card-text">Trip dates - 8/12 | 8/16</p>
+                            <p class="card-text">Average Price - $124</p>
+                            <p class="card-text">
+                                Typical Carriers -
+                                <img src="{% static "images/jetblue.png" %}" alt="Airline" height="25">
+                                <img src="{% static "images/spirit.png" %}" alt="Airline" height="25">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card m-2 border">
+                        <div class="card-body">
+                            <h5 class="card-title">New York - Los Angeles</h5>
+                            <p class="card-text">Trip dates - 8/12 | 8/16</p>
+                            <p class="card-text">Average Price - $124</p>
+                            <p class="card-text">
+                                Typical Carriers -
+                                <img src="{% static "images/jetblue.png" %}" alt="Airline" height="25">
+                                <img src="{% static "images/spirit.png" %}" alt="Airline" height="25">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5 pt-4">
+        <div class="container pt-5">
+            <div class="content_container">
+                <p class="sec_one_head" style="font-size: 35px;">Trending Flights
+                </p>
+                <p class="sec_one_subhead" style="font-size: 18px; font-weight:400; margin-bottom: 30px;">Take a look at
+                    the current flights
+                    Wanderift travelers are searching and booking
+                </p>
+                <div class="row justify-content-start">
+                    <div class="col-lg-4">
+                        <img class="img_content" src="{% static "images/lasvegas.jpg" %}">
+                        <p class="sec_one_subhead">Dallas (DAL) - Las Vegas (LAS)</p>
+                        <p class="sec_one_subhead" style="font-size:15px; margin-bottom: 8px; font-weight: 400;">$234 -
+                            Round
+                            Trip Retail Price</p>
+                        <p class="sec_one_subhead" style="font-size:15px; font-weight: 400;">2 Credits, or $224 - Round
+                            Trip
+                            Wanderift</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <img class="img_content" src="{% static "images/newyork.jpg" %}">
+                        <p class="sec_one_subhead">San Francisco (SFO) - New York (LGA)</p>
+                        <p class="sec_one_subhead" style="font-size:15px; margin-bottom: 8px; font-weight: 400;">$234 -
+                            Round
+                            Trip Retail Price</p>
+                        <p class="sec_one_subhead" style="font-size:15px; font-weight: 400;">2 Credits, or $224 - Round
+                            Trip
+                            Wanderift</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <img class="img_content" src="{% static "images/seattle.jpg" %}">
+                        <p class="sec_one_subhead">Los Angeles (LAX) - Seattle (SEA)</p>
+                        <p class="sec_one_subhead" style="font-size:15px; margin-bottom: 8px; font-weight: 400;">$234 -
+                            Round
+                            Trip Retail Price</p>
+                        <p class="sec_one_subhead" style="font-size:15px; font-weight: 400;">2 Credits, or $224 - Round
+                            Trip
+                            Wanderift</p>
+                    </div>
+                </div>
+            </div>
+            <div class="content_container divider" style="margin-top: 80px;">
+                <p class="sec_one_head" style="font-size: 35px;">Top Destinations of August
+                <p>
+                <p class="sec_one_subhead" style="font-size: 18px; font-weight:400;  margin-bottom: 30px;">We’ve taken
+                    all
+                    the flight bookings and
+                    listed out the top places our travelers are booking
+
+                <p>
+                    <div class="row justify-content-start">
+                        <div class="col-lg-4">
+                            <img class="img_content" src="{% static "images/chicago.jpg" %}">
+                <p class="sec_one_subhead" style="margin-bottom:10px;">Chicago, IL (ORD)</p>
+                <p class="sec_one_subhead" style="font-size:15px; margin-bottom: 8px; font-weight: 400;">Average flight
+                    price $233</p>
+                <p class="sec_one_subhead" style="font-size:15px; font-weight: 400;">Most Frequent Carrier, United</p>
+            </div>
+            <div class="col-lg-4">
+                <img class="img_content" src="{% static "images/miami.jpg" %}">
+                <p class="sec_one_subhead" style="margin-bottom:10px;">Miami, FL (MIA)</p>
+                <p class="sec_one_subhead" style="font-size:15px; margin-bottom: 8px; font-weight: 400;">Average flight
+                    price $168</p>
+                <p class="sec_one_subhead" style="font-size:15px; font-weight: 400;">Most Frequent Carrier, American</p>
+            </div>
+            <div class="col-lg-4">
+                <img class="img_content" src="{% static "images/sanfrancisco.jpg" %}">
+                <p class="sec_one_subhead" style="margin-bottom:10px;">San Francisco, CA (SFO)</p>
+                <p class="sec_one_subhead" style="font-size:15px; margin-bottom: 8px; font-weight: 400;">Average flight
+                    price $183</p>
+                <p class="sec_one_subhead" style="font-size:15px; font-weight: 400;">Most Frequent Carrier, American</p>
+            </div>
+        </div>
+
+        </div>
+        </div>
+    </section>
+
+    <section class="mb-5" style="margin-top: 100px;">
+        <div class="container conversion-box">
+            <div class="row p-2 p-md-5 row-eq-height">
+                <div class="col-12 col-md-7">
+                    <h4 class="font-weight-normal d-flex justify-content-center"
+                        style="line-height: 1.5; font-size: 1.3rem; font-weight: 600px;">
+                        <span>Looking to book flight on the go? Enter your phone <br>
+                        number to get the Wanderift app texted to you</span>
+                    </h4>
+                    <div class="appstore-buttons d-block d-md-flex justify-content-center mt-4 mb-2">
+                        <button class="btn btn-lg btn-default border appstore-btn mr-4 mb-2 text-left">
+                            <img src="{% static "images/icons/app-store-icon.jpg" %}" alt="App Store" height="30"
+                                 class="mr-4">
+                            <span>App Store</span>
+                        </button>
+                        <button class="btn btn-lg btn-default border appstore-btn mr-4 mb-2 text-left">
+                            <img src="{% static "images/icons/play-store-icon.png" %}" alt="Play Store" height="30"
+                                 class="mr-4">
+                            <span>Play Store</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 d-flex flex-column justify-content-around">
+                    <input type="text" placeholder="Enter Your Number" class="form-control p-4 text-center">
+                    <button class="search_btn w-100 mt-1">Send</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        {% include "_includes/footer.html" %}
+    </section>
+{% endblock %}
+{% block jscontent %}
+    <script src="{% static "js/home.js" %}"></script>
+    <script>
+        let tripButton = document.querySelector(".btn-group");
+        let picker = new Lightpick({
+            field: document.getElementById('departure_date'),
+            secondField: document.getElementById('return_date'),
+            singleDate: false,
+            onSelect: function (start, end) {
+                var str = '';
+                str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+                str += end ? end.format('Do MMMM YYYY') : '...';
+            }
+        });
+    </script>
+{% endblock %}

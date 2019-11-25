@@ -1,0 +1,382 @@
+.background-colored {
+    background-color: #f7f9ff;
+}
+
+.content-holder {
+    padding: 30px 15px 50px 15px;
+}
+
+.primary-button {
+    background-color: #00B7FF;
+    color: white;
+}
+
+.header-image-holder img {
+    margin-top: 40px;
+    width: 45%;
+    margin-right: 100px;
+}
+
+.result-item {
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+.result-item .result-block {
+    cursor: pointer;
+}
+.price-block {
+    min-width: 110px;
+}
+
+.payment-flight-info {
+    background-color: white;
+}
+
+.search_btn.book-btn {
+    color: #00b7ff;
+    background-color: white;
+    border: 1px solid #00b7ff;
+    padding: 8px 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.thin-blue-btn {
+    color: white;
+    background-color: #00b7ff;
+    border: 1px solid #00b7ff;
+    border-radius: 4px;
+    padding: 3px 15px;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    min-width: 120px;
+}
+
+
+/*HELPERS*/
+.no-bg-color {
+
+}
+.divider-15,
+.divider-30 {
+    height: 0;
+    width: 100%;
+    clear: both;
+}
+.divider-15 {
+    margin-top: 15px;
+}
+.divider-30 {
+    margin-top: 30px;
+}
+.large_btn {
+    font-size: 1.4em;
+}
+.total-tokens {
+    font-size: 2em;
+}
+.corporate-progress {
+    height: 3em;
+}
+.text-primary {
+    color: #00B7FF!important;
+}
+.progress-bar {
+    background-color: #00B7FF;
+}
+.slider-handle {
+    background-color: #00B7FF;
+    background-image: none;
+}
+.white-block {
+    background-color: white;
+}
+.white-block h4 {
+    padding-top: 10px;
+    font-size: 1.2rem;
+}
+.simple-column {
+    padding: 60px 0 30px 0;
+}
+.simple-column h1 {
+    padding: 30px 0;
+}
+.simple-column p {
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+.form.card {
+    padding: 15px;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+.conversion-box {
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+.appstore-btn {
+    background-color: white;
+    min-width: 210px;
+}
+.appstore-btn span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #151f3f;
+}
+
+.offer-card.active {
+    border: 1px solid #00b7ff;
+    box-shadow: 0 2px 6px rgba(0, 183, 255, 0.4);
+    z-index: 1;
+}
+
+.nav-tabs li a.active {
+    color: #00B7FF;
+}
+
+.faq-accordion .card .card-header,
+.subs-accordion .card .card-header {
+    background-color: #f7f9ff;
+}
+.faq-accordion .card .card-header button,
+.subs-accordion .card .card-header button {
+    color: black;
+    font-weight: bold;
+}
+.faq-accordion .card .card-header button:hover,
+.subs-accordion .card .card-header button:hover {
+    text-decoration: none;
+}
+.faq-accordion .card .card-header button:focus,
+.subs-accordion .card .card-header button:focus {
+    text-decoration: none;
+}
+
+
+.non-subs-accordion .card .card-header,
+.pack-accordion .card .card-header {
+    background-color: white;
+}
+.non-subs-accordion .card .card-header button,
+.pack-accordion .card .card-header button {
+    color: black;
+    font-weight: 600;
+}
+.non-subs-accordion .card .card-header button:hover,
+.pack-accordion .card .card-header button:hover {
+    text-decoration: none;
+}
+.non-subs-accordion .card .card-header button:focus,
+.pack-accordion .card .card-header button:focus {
+    text-decoration: none;
+}
+
+.subscription-card {
+    border-width: 2px;
+}
+
+.container.wide-container {
+    max-width: 1400px;
+}
+
+.subscription-card .card-header {
+    background-color: #00b7ff;
+    color: white;
+    padding: 15px;
+    height: 140px;
+}
+.subscription-card .card-header h2 {
+    font-size: 34px;
+}
+.subscription-card .card-body {
+    font-weight: bold;
+}
+.subscription-card .card-body ul {
+    list-style: none;
+    margin: 40px 0;
+}
+.subscription-card .card-body ul li {
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+.subscription-card .card-body .btn {
+    margin: 30px 0;
+    height: 40px;
+}
+.subscription-card .card-body p {
+    font-size: 1.5rem;
+}
+
+.main-btn-outline {
+    background-color: white;
+    border: 1px solid #00b7ff;
+    color: #00b7ff;
+    font-weight: bold;
+}
+.main-btn-outline:hover {
+    background-color: #00b7ff;
+    border: 1px solid #00b7ff;
+}
+
+
+.team-grid-item {
+    margin: 30px 0;
+    text-align: center;
+    padding: 10px 15px;
+}
+.team-grid-item .img-holder {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 15px auto;
+    text-align: center;
+}
+.team-grid-item .img-holder .image {
+    position: relative;
+    left: -50%;
+    height: 140px;
+    width: 140px;
+}
+.team-grid-item .img-holder img {
+    height: 100%;
+    width: auto;
+    margin-left: 50%;
+}
+
+.partners-grid-item .card {
+    padding: 30px;
+    margin-top: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.partners-grid-item h4 {
+    font-size: 1.9em;
+    margin-bottom: 30px;
+    justify-self: flex-start;
+}
+.partners-grid-item p,
+.partners-grid-item a {
+    font-size: 1.2em;
+}
+.partners-grid-item p {
+    justify-self: center;
+}
+.partners-grid-item a {
+    justify-self: flex-end;
+}
+
+.search_btn.link {
+    background-color: #00B7FF;
+    padding: 8px 25px;
+    color: white;
+    border-radius: 4px;
+}
+
+/*****NEW SEARCH BAR*******/
+.flexed-search-bar {
+    display: flex;
+}
+.flexed-search-bar .flexed-search-item {
+    position: relative;
+    min-width: 120px;
+    padding: 0 10px;
+}
+.flexed-search-bar .flexed-search-item label {
+    width: 100%;
+    margin-left: -8px;
+    height: 50px;
+}
+.flexed-search-bar .flexed-search-item label h6 {
+    font-size: 16px;
+    margin-left: 5px;
+    margin-top: 14px;
+    font-family: karla;
+    font-weight:bold;
+    opacity: .5;
+}
+.flexed-search-bar .flexed-search-item img.icon_repeat {
+    position: absolute;
+    right: -7px;
+    top: 10px;
+    z-index: 9;
+    opacity: 0.8;
+    width: 30px;
+}
+.flexed-search-bar .flexed-search-item button {
+    padding: 13px 30px;
+}
+
+.trip-item {
+    min-height: 160px;
+    font-size: 1.6em;
+    padding-top: 30px;
+}
+
+/*SMALL DEVICES*/
+@media screen and (max-width: 992px) {
+    .flexed-search-bar {
+        flex-direction: column;
+    }
+    .flexed-search-bar .flexed-search-item {
+        min-width: 100%;
+    }
+    .flexed-search-bar .flexed-search-item label {
+        margin-left: 0;
+    }
+    .flexed-search-bar .flexed-search-item img.icon_repeat {
+        left: 48%;
+        top: 38px;
+    }
+
+    .navbar-collapse {
+        padding: 15px 0;
+    }
+    .navbar-collapse .navbar-nav li {
+        padding: 10px 0;
+    }
+
+    .navbar-light {
+        padding-right: 15px;
+    }
+
+    .navbar-brand {
+        position: relative;
+        float: left;
+    }
+    .navbar-toggler {
+        float: right;
+    }
+
+    .slider-holder {
+        display: block!important;
+    }
+    .slider-holder .slider {
+        width: 100%;
+    }
+
+    .search_content_box {
+        padding-top: 15px;
+    }
+    .search-column-dropdown {
+        padding-left: 20px;
+    }
+    .conversion-box {
+        border: 0;
+    }
+    .appstore-btn {
+        width: 100%;
+    }
+
+}
+
+a {
+    color: #142346;
+}
